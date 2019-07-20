@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="Ungu">#482B4D</color>
+    <color name="Pink">#974866</color>
+    <color name="Yellow">#A29830</color>
+    <color name="Abu">#f4f4f4</color>
+    <color name="abutuamed">#3C3C3C</color>
+    <color name="Orange">#f95f04</color>
+    <color name="Cream">#fcd597</color>
+</resources>
