@@ -25,9 +25,8 @@ public class ListActivity extends AppCompatActivity {
     ListView listView;
     FirebaseDatabase database;
     DatabaseReference reference;
-    ArrayList<ToDoList> arrayList;
+    ArrayList<ToDoList> arrayList = new ArrayList<>();
     AdapterToDoList adapter;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,9 +76,9 @@ public class ListActivity extends AppCompatActivity {
                                 reference = database.getReference("task").child(toDoList.getId());
                                 reference.removeValue();
                                 arrayList.clear();
-
                             }
-                        });
+                        })
+                        .show();
 
                 return false;
             }
