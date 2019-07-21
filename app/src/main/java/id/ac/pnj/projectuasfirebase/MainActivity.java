@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     EditText edt_username,edt_password;
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
                 if (username.equals("admin") && password.equals("123")) {
                     Intent intent = new Intent(MainActivity.this, ListActivity.class);
                     startActivity(intent);
+                } else {
+                    Toast.makeText(MainActivity.this, "Username atau password salah!", Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -21,11 +21,9 @@ public class FormActivity extends AppCompatActivity {
     DatePicker datePicker;
     Button btn_create_list;
     String toDoListId, method="create";
-    Toolbar toolbar;
 
     FirebaseDatabase database;
     DatabaseReference reference;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,20 +33,9 @@ public class FormActivity extends AppCompatActivity {
         edt_notes = (EditText)findViewById (R.id.edt_notes);
         datePicker = (DatePicker) findViewById(R.id.edt_date);
         btn_create_list= (Button) findViewById(R.id.btn_create_list);
-        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        getSupportActionBar().setLogo(android.R.drawable.foxy3);
-
-        final String taskName = edt_task_name.getText().toString();
-        final String notes = edt_notes.getText().toString();
-        Date date = new Date(datePicker.getDayOfMonth(), datePicker.getMonth(), datePicker.getYear());
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/mm/yyyy");
-        final String dateTask = simpleDateFormat.format(date);
-
 
         database = FirebaseDatabase.getInstance();
-        reference = database.getReference();
+        reference = database.getReference("task");
         Intent intent = getIntent();
         if(intent.hasExtra("id")){
             toDoListId = intent.getStringExtra("id");
@@ -60,9 +47,14 @@ public class FormActivity extends AppCompatActivity {
         btn_create_list.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String taskName = edt_task_name.getText().toString();
+                String notes = edt_notes.getText().toString();
+                int day = datePicker.getDayOfMonth();
+                int month = datePicker.getMonth();
+                int year = datePicker.getYear();
+                String dateTask = day + "-" + month + "-" + year;
                 if (!taskName.isEmpty() && !notes.isEmpty() && !dateTask.isEmpty()){
                     if (method.equals("create")) {
-
                         String id = reference.push().getKey();
                         ToDoList toDoList = new ToDoList(taskName, dateTask, notes, id);
                         reference.child(id).setValue(toDoList);
