@@ -76,12 +76,11 @@ public class ListActivity extends AppCompatActivity {
                                 reference = database.getReference("task").child(toDoList.getId());
                                 reference.removeValue();
                                 arrayList.clear();
-                                adapter.notifyDataSetChanged();
                             }
                         })
                         .show();
 
-                return true;
+                return false;
             }
         });
 
