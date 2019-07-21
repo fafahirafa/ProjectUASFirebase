@@ -22,9 +22,9 @@
             android:foregroundGravity="top"
             android:gravity="top">
             <ImageView
-                android:layout_width="50dp"
+                android:layout_width="150dp"
                 android:layout_height="50dp"
-                android:src="@drawable/logo1"/>
+                android:src="@drawable/logo3"/>
         </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
 
