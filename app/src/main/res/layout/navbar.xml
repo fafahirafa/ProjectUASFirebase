@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="50dp"
-    android:background="@color/putih"
-    android:gravity="left"
-    android:layout_gravity="top"
-    android:foregroundGravity="top">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-
-    <ImageView
-        android:layout_width="wrap_content"
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/logo1"/>
+        android:orientation="vertical">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:background="@color/putih"
+            android:foregroundGravity="top"
+            android:gravity="top">
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="50dp"/>
 
-</android.support.v7.widget.Toolbar>
+        </android.support.v7.widget.Toolbar>
+        <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="4dp"-->
+        <!--android:background="@drawable/shadow" />-->
+    </android.support.design.widget.AppBarLayout>
+
+</LinearLayout>
