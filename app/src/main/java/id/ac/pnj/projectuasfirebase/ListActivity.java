@@ -109,4 +109,9 @@ public class ListActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        //tidak kembali ke activity sebelumnya ketika ditekan tombol back
+    }
 }
