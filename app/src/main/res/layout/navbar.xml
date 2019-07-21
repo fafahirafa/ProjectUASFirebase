@@ -12,13 +12,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
-            android:background="@color/putih"
+            android:background="@color/White"
             android:foregroundGravity="top"
             android:gravity="top">
             <ImageView
                 android:layout_width="150dp"
                 android:layout_height="50dp"
-                android:src="@drawable/logo_snapdiet_text"/>
+                android:src="@drawable/logo3"/>
 
         </android.support.v7.widget.Toolbar>
         <!--<View-->
