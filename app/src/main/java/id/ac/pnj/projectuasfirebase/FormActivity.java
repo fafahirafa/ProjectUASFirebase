@@ -41,7 +41,7 @@ public class FormActivity extends AppCompatActivity {
 //        getSupportActionBar().setLogo(android.R.drawable.foxy3);
 
         database = FirebaseDatabase.getInstance();
-        reference = database.getReference();
+        reference = database.getReference("task");
         Intent intent = getIntent();
         if(intent.hasExtra("id")){
             toDoListId = intent.getStringExtra("id");
@@ -56,8 +56,10 @@ public class FormActivity extends AppCompatActivity {
                 String taskName = edt_task_name.getText().toString();
                 String notes = edt_notes.getText().toString();
                 Date date = new Date(datePicker.getDayOfMonth(), datePicker.getMonth(), datePicker.getYear());
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-mm-yyyy");
-                String dateTask = simpleDateFormat.format(date);
+                int day = datePicker.getDayOfMonth();
+                int month = datePicker.getMonth();
+                int year = datePicker.getYear();
+                String dateTask = day + "-" + month + "-" + year;
 
                 if (!taskName.isEmpty() && !notes.isEmpty() && !dateTask.isEmpty()){
                     if (method.equals("create")) {
