@@ -3,8 +3,6 @@ package id.ac.pnj.projectuasfirebase;
 public class ToDoList {
     String task_name, date, notes, id;
 
-    public ToDoList(){}
-
     public ToDoList(String task_name, String date, String notes, String id) {
         this.task_name = task_name;
         this.date = date;

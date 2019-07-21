@@ -35,10 +35,17 @@ public class FormActivity extends AppCompatActivity {
         edt_notes = (EditText)findViewById (R.id.edt_notes);
         datePicker = (DatePicker) findViewById(R.id.edt_date);
         btn_create_list= (Button) findViewById(R.id.btn_create_list);
-//        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//
-//        getSupportActionBar().setLogo(android.R.drawable.foxy3);
+        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        getSupportActionBar().setLogo(android.R.drawable.foxy3);
+
+        final String taskName = edt_task_name.getText().toString();
+        final String notes = edt_notes.getText().toString();
+        Date date = new Date(datePicker.getDayOfMonth(), datePicker.getMonth(), datePicker.getYear());
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/mm/yyyy");
+        final String dateTask = simpleDateFormat.format(date);
+
 
         database = FirebaseDatabase.getInstance();
         reference = database.getReference();
@@ -53,12 +60,6 @@ public class FormActivity extends AppCompatActivity {
         btn_create_list.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String taskName = edt_task_name.getText().toString();
-                String notes = edt_notes.getText().toString();
-                Date date = new Date(datePicker.getDayOfMonth(), datePicker.getMonth(), datePicker.getYear());
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-mm-yyyy");
-                String dateTask = simpleDateFormat.format(date);
-
                 if (!taskName.isEmpty() && !notes.isEmpty() && !dateTask.isEmpty()){
                     if (method.equals("create")) {
 
