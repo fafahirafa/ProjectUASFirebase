@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -20,6 +21,7 @@ public class FormActivity extends AppCompatActivity {
     DatePicker datePicker;
     Button btn_create_list;
     String toDoListId, method="create";
+    Toolbar toolbar;
 
     FirebaseDatabase database;
     DatabaseReference reference;
@@ -33,12 +35,17 @@ public class FormActivity extends AppCompatActivity {
         edt_notes = (EditText)findViewById (R.id.edt_notes);
         datePicker = (DatePicker) findViewById(R.id.edt_date);
         btn_create_list= (Button) findViewById(R.id.btn_create_list);
+        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        getSupportActionBar().setLogo(android.R.drawable.foxy3);
 
         final String taskName = edt_task_name.getText().toString();
         final String notes = edt_notes.getText().toString();
         Date date = new Date(datePicker.getDayOfMonth(), datePicker.getMonth(), datePicker.getYear());
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/mm/yyyy");
         final String dateTask = simpleDateFormat.format(date);
+
 
         database = FirebaseDatabase.getInstance();
         reference = database.getReference();
